@@ -3,53 +3,94 @@ import { RepoGrid, type Repo } from "@/components/ui/RepoGrid";
 const fallbackRepos: Repo[] = [
   {
     id: 1,
-    name: "chuzouX-space",
-    description: "My personal homepage and portfolio, built with Next.js, Framer Motion, and Tailwind CSS. Features dynamic RSS fetching and a dark-void aesthetic.",
-    html_url: "https://github.com/chuzouX",
-    stargazers_count: 5,
-    language: "TypeScript",
+    name: "tphira-mp",
+    description: "A Phira multiplayer server implementation using Express and WebSockets. High performance and real-time.",
+    html_url: "https://github.com/chuzouX/tphira-mp",
+    stargazers_count: 28,
+    language: "JavaScript",
     fork: false,
   },
   {
     id: 2,
-    name: "CTF-Writeups",
-    description: "Collection of my CTF writeups including Web Security, Reverse Engineering, and Crypto.",
-    html_url: "https://github.com/chuzouX",
-    stargazers_count: 12,
-    language: "Python",
+    name: "phira-mp-nodejsver",
+    description: "Multiplayer backend service for Phira. Features room management and live status API.",
+    html_url: "https://github.com/chuzouX/phira-mp-nodejsver",
+    stargazers_count: 15,
+    language: "JavaScript",
     fork: false,
   },
   {
     id: 3,
+    name: "chuzoux-space",
+    description: "My personal high-performance space page built with Next.js 15, Framer Motion and Tailwind CSS.",
+    html_url: "https://github.com/chuzouX/portfolio",
+    stargazers_count: 12,
+    language: "TypeScript",
+    fork: false,
+  },
+  {
+    id: 4,
     name: "Nonebot-Plugins",
-    description: "Custom plugins developed for the Nonebot2 ecosystem.",
+    description: "A collection of useful plugins for the Nonebot2 robot framework (QQ/Telegram).",
     html_url: "https://github.com/chuzouX",
     stargazers_count: 8,
+    language: "Python",
+    fork: false,
+  },
+  {
+    id: 5,
+    name: "CISCN-Writeups",
+    description: "Detailed writeups for China Information Security National Competition (CISCN).",
+    html_url: "https://github.com/chuzouX",
+    stargazers_count: 7,
+    language: "Markdown",
+    fork: false,
+  },
+  {
+    id: 6,
+    name: "CyberSecurity-Tools",
+    description: "Small automated scripts for web security research and vulnerability analysis.",
+    html_url: "https://github.com/chuzouX",
+    stargazers_count: 5,
     language: "Python",
     fork: false,
   }
 ];
 
 async function fetchGithubRepos(): Promise<Repo[]> {
+  const username = "chuzouX";
+  const token = process.env.GITHUB_TOKEN;
+
   try {
-    const res = await fetch("https://api.github.com/users/chuzouX/repos?sort=updated&per_page=100", {
-      next: { revalidate: 3600 },
+    console.log(`[GitHub] Attempting to fetch repos for ${username}...`);
+    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed`, {
+      cache: "no-store",
       headers: {
         Accept: "application/vnd.github.v3+json",
+        "User-Agent": "chuzouX-Portfolio-NextJS",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
       },
     });
     
-    if (!res.ok) throw new Error("Failed to fetch GitHub repos");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(`GitHub API Error: ${res.status} - ${errorData.message || 'Unknown error'}`);
+    }
     
-    const repos: Repo[] = await res.json();
-    if (!Array.isArray(repos)) throw new Error("Invalid response format");
+    const repos = await res.json();
+    if (!Array.isArray(repos)) throw new Error("Invalid response format from GitHub");
     
-    // Filter out forks and return all
-    return repos.filter((repo: Repo) => !repo.fork);
-  } catch (error) {
-    // Use console.warn instead of console.error to prevent Next.js from throwing a hard error overlay in dev mode
-    console.warn("Network error fetching GitHub repos, using fallback data.");
-    return fallbackRepos;
+    console.log(`[GitHub] Successfully fetched ${repos.length} repos.`);
+
+    // Filter out forks and sort by stars descending
+    const filtered = repos
+      .filter((repo: any) => !repo.fork)
+      .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
+    
+    return filtered;
+  } catch (error: any) {
+    console.warn(`[GitHub] Fetch Failed: ${error.message}. Showing fallback data.`);
+    return fallbackRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
   }
 }
 
