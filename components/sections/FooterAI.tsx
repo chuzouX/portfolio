@@ -42,6 +42,8 @@ export function FooterAI() {
           <h4 className="text-white font-bold mb-6 font-display tracking-widest uppercase text-sm">Navigation</h4>
           <ul className="space-y-4 text-sm font-light">
             <li><a href="#posts" className="hover:text-blue-400 transition-colors">Posts</a></li>
+            <li><a href="#projects" className="hover:text-blue-400 transition-colors">Projects</a></li>
+            <li><a href="#skills" className="hover:text-blue-400 transition-colors">Skills</a></li>
             <li><a href="#background" className="hover:text-blue-400 transition-colors">Background</a></li>
             <li><a href="https://chuzoux.top/" className="hover:text-blue-400 transition-colors">Blog</a></li>
           </ul>

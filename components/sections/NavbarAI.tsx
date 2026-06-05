@@ -33,7 +33,7 @@ export function NavbarAI() {
 
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8 text-sm uppercase tracking-widest text-slate-300">
-              {["Posts", "Background", "Blog"].map((item) => (
+              {["Posts", "Projects", "Skills", "Background", "Blog"].map((item) => (
                 <li key={item}>
                   <Link href={item === "Blog" ? "https://chuzoux.top/" : `#${item.toLowerCase()}`} className="hover:text-white hover:text-shadow-[0_0_10px_#fff] transition-all">
                     {item}
