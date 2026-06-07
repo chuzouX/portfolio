@@ -71,25 +71,26 @@ async function fetchGithubRepos(): Promise<Repo[]> {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
       },
     });
-    
+
     if (!res.ok) {
       const errorData = await res.json().catch(() => ({}));
       throw new Error(`GitHub API Error: ${res.status} - ${errorData.message || 'Unknown error'}`);
     }
-    
+
     const repos = await res.json();
     if (!Array.isArray(repos)) throw new Error("Invalid response format from GitHub");
-    
+
     console.log(`[GitHub] Successfully fetched ${repos.length} repos.`);
 
     // Filter out forks and sort by stars descending
     const filtered = repos
-      .filter((repo: any) => !repo.fork)
-      .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
-    
+      .filter((repo: Repo) => !repo.fork)
+      .sort((a: Repo, b: Repo) => b.stargazers_count - a.stargazers_count);
+
     return filtered;
-  } catch (error: any) {
-    console.warn(`[GitHub] Fetch Failed: ${error.message}. Showing fallback data.`);
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.warn(`[GitHub] Fetch Failed: ${errorMessage}. Showing fallback data.`);
     return fallbackRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
   }
 }
