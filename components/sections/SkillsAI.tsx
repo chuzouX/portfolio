@@ -25,9 +25,9 @@ const skillCategories = [
     borderColor: "group-hover:border-emerald-500/50"
   },
   {
-    title: "Reverse Engineering",
-    icon: "⚙️",
-    skills: ["Static Analysis", "Basic Patching", "IDA Pro / OllyDbg", "Logic Flow Analysis"],
+    title: "Server Ops & Deploy",
+    icon: "🖥️",
+    skills: ["Linux Server Management", "Nginx / Apache", "Server Monitoring", "System Optimization", "Backup & Recovery", "Security Hardening"],
     color: "from-amber-500/10 to-orange-500/10",
     borderColor: "group-hover:border-amber-500/50"
   },

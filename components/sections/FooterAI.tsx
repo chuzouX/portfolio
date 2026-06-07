@@ -52,15 +52,18 @@ export function FooterAI() {
         <div>
           <h4 className="text-white font-bold mb-6 font-display tracking-widest uppercase text-sm">Links</h4>
           <ul className="space-y-4 text-sm font-light">
-            <li><a href="https://chuzoux.top/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">chuzouX Blog</a></li>
-            <li><a href="#" className="hover:text-purple-400 transition-colors">GitHub</a></li>
-            <li><a href="#" className="hover:text-purple-400 transition-colors">十年之约 (Ten Year Promise)</a></li>
+            <li><a href="https://chuzoux.top/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">Blog</a></li>
+            <li><a href="https://eo-monitor.chuzoux.top/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">EdgeOne Monitor</a></li>
+            <li><a href="https://umami.chuzoux.top/share/evQ07K61RINSSxXs" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">Analytics</a></li>
+            <li><a href="https://pan.chuzoux.top/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">Cloud Drive</a></li>
+            <li><a href="https://github.com/chuzouX" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">Github</a></li>
+            <li><a href="https://chuzoux.top/sponsors/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">Sponsor</a></li>
           </ul>
         </div>
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 mt-24 pt-8 border-t border-slate-800/50 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 font-mono">
-        <p>© {new Date().getFullYear()} chuzouX. 鲁ICP备2025189837号-1</p>
+        <p>© {new Date().getFullYear()} chuzouX. <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">鲁ICP备2025189837号-1</a></p>
         <p>SYSTEM.STATUS [ <span className="text-green-500">ONLINE</span> ]</p>
       </div>
     </footer>

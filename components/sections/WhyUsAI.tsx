@@ -30,9 +30,9 @@ export function WhyUsAI() {
             <div className="space-y-4">
               {[
                 "Rhythm Games (音游) Enthusiast",
-                "Xiaomi Ecosystem Explorer",
+                "Ecosystem Developer & Integrator",
                 "Documenting daily study life",
-                "Open-source advocate"
+                "Sandbox Games (Minecraft, Terraria)"
               ].map((item, i) => (
                 <div key={i} className="glass rounded-2xl p-6 opacity-60 grayscale">
                   <p className="text-slate-400 font-mono text-sm">{item}</p>
@@ -54,10 +54,10 @@ export function WhyUsAI() {
             
             <div className="space-y-4">
               {[
-                "Web Security & CTF (CISCN, LitCTF)",
-                "PHP Deserialization & SQLi",
-                "Source code logic analysis",
-                "Building tools with Python & JS"
+                "Server Deployment & Operations",
+                "AI Development & Integration",
+                "CTF Competitions & Vulnerability Research",
+                "Deals Hunting & Resource Optimization"
               ].map((item, i) => (
                 <div key={i} className="glass-strong border-blue-500/30 rounded-2xl p-6 relative overflow-hidden group">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

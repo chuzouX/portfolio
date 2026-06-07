@@ -33,25 +33,30 @@ export function NavbarAI() {
 
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8 text-sm uppercase tracking-widest text-slate-300">
-              {["Posts", "Projects", "Skills", "Background", "Blog"].map((item) => (
+              {["Posts", "Sites", "Projects", "Skills", "Background", "Contact"].map((item) => (
                 <li key={item}>
-                  <Link href={item === "Blog" ? "https://chuzoux.top/" : `#${item.toLowerCase()}`} className="hover:text-white hover:text-shadow-[0_0_10px_#fff] transition-all">
+                  <Link
+                    href={`#${item.toLowerCase()}`}
+                    className="hover:text-white transition-all duration-300 relative group"
+                  >
                     {item}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300" />
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <motion.button
-            onClick={() => window.location.href = 'https://chuzoux.top/'}
+          <motion.a
+            href="https://chuzoux.top/"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative overflow-hidden rounded-full bg-white px-6 py-2.5 text-sm font-bold text-black"
+            className="relative overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-2.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(59,130,246,0.5)]"
           >
-            <span className="relative z-10">Read Blog</span>
-            <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 transition-opacity duration-300 hover:opacity-100" />
-          </motion.button>
+            <span className="relative z-10">Visit Blog</span>
+          </motion.a>
         </div>
       </div>
     </motion.header>

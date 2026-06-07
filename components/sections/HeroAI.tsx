@@ -61,7 +61,7 @@ export function HeroAI() {
             className="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed text-slate-400 sm:text-xl"
           >
             欢迎大家光临本站，希望大家在这里可以找到自己想要的东西，祝大家玩的开心！！ <br/>
-            I focus on Web Security, CTF Competitions, and Software Development.
+            I focus on Web Security, Server Deployment, Network Technology, and Vulnerability Research.
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-12 flex justify-center gap-6">

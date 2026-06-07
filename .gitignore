@@ -10,9 +10,11 @@
 # next.js
 /.next/
 /out/
+.next
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -30,21 +32,35 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-*.env*
+.env*.local
 
 # vercel
 .vercel
-
-# next.js
-/.next/
-/out/
-.next
 
 # IDEs
 .vscode/
 .idea/
 .claude/
+*.swp
+*.swo
+*~
 
 # OS
 .DS_Store
 Thumbs.db
+*.log
+
+# EdgeOne Pages / Wrangler
+.edgeone/
+.wrangler/
+worker-configuration.d.ts
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Lock files (keep package-lock.json but ignore others if needed)
+# yarn.lock
+# pnpm-lock.yaml
+
+
