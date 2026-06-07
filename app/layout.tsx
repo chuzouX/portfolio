@@ -12,13 +12,12 @@ export const metadata: Metadata = {
   publisher: "chuzouX",
   icons: {
     icon: [
-      { url: "/icon.png" },
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+      { url: "https://q2.qlogo.cn/headimg_dl?dst_uin=3451860760&spec=0" },
     ],
     apple: [
-      { url: "/icon.png" },
+      { url: "https://q2.qlogo.cn/headimg_dl?dst_uin=3451860760&spec=0" },
     ],
+    shortcut: "https://q2.qlogo.cn/headimg_dl?dst_uin=3451860760&spec=0",
   },
   openGraph: {
     type: "website",
