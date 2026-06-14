@@ -104,6 +104,13 @@ export default function RootLayout({
       className="dark"
     >
       <head>
+        {/* DNS Prefetch and Preconnect for performance */}
+        <link rel="dns-prefetch" href="https://umami.chuzoux.top" />
+        <link rel="preconnect" href="https://umami.chuzoux.top" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://q2.qlogo.cn" />
+        <link rel="preconnect" href="https://q2.qlogo.cn" crossOrigin="anonymous" />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

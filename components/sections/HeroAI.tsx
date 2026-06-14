@@ -3,6 +3,7 @@
 import { motion, Variants } from "framer-motion";
 import { RainbowBordersButton } from "@/components/ui/rainbow-borders-button";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function HeroAI() {
   const containerVariants: Variants = {
@@ -43,10 +44,13 @@ export function HeroAI() {
               </span>
               Technology Sharing and Practice
             </div>
-            <img 
-              src="https://q2.qlogo.cn/headimg_dl?dst_uin=3451860760&spec=0" 
-              alt="chuzouX Avatar" 
-              className="h-28 w-28 rounded-full border-4 border-slate-800/50 object-cover shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-transform duration-500 hover:scale-105"
+            <Image
+              src="https://q2.qlogo.cn/headimg_dl?dst_uin=3451860760&spec=0"
+              alt="chuzouX Avatar"
+              width={112}
+              height={112}
+              priority
+              className="rounded-full border-4 border-slate-800/50 object-cover shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-transform duration-500 hover:scale-105"
             />
           </motion.div>
 
