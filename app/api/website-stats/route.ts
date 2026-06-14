@@ -1,14 +1,29 @@
 import { NextResponse } from 'next/server';
 
+interface UmamiShareData {
+  websiteId: string;
+  token: string;
+}
+
+interface StatsCache {
+  data: { pageviews: number; visitors: number };
+  timestamp: number;
+}
+
+interface ShareCache {
+  data: UmamiShareData;
+  timestamp: number;
+}
+
 const SHARE_TOKEN = 'evQ07K61RINSSxXs';
 const UMAMI_URL = 'https://umami.chuzoux.top';
 
 // 缓存网站统计数据
-let statsCache: { data: any; timestamp: number } | null = null;
+let statsCache: StatsCache | null = null;
 const CACHE_TTL = 300_000; // 5 分钟
 
 // 缓存 share 数据
-let shareDataCache: { data: any; timestamp: number } | null = null;
+let shareDataCache: ShareCache | null = null;
 const SHARE_CACHE_TTL = 3600_000; // 1 小时
 
 async function getShareData() {

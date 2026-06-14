@@ -18,7 +18,7 @@ export function WebsiteStats() {
         } else {
           setStats(null);
         }
-      } catch (error) {
+      } catch {
         setStats(null);
       } finally {
         setLoading(false);

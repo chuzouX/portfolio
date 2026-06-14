@@ -31,7 +31,7 @@ export function PageViews({ url, className = "" }: PageViewsProps) {
         } else {
           setViews(null);
         }
-      } catch (error) {
+      } catch {
         // 静默处理错误
         setViews(null);
       } finally {
