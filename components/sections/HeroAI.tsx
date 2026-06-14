@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ShinyButton } from "@/components/ui/shiny-button";
+import { RainbowBordersButton } from "@/components/ui/rainbow-borders-button";
 import { ArrowRight } from "lucide-react";
 
 export function HeroAI() {
@@ -68,12 +68,12 @@ export function HeroAI() {
 
           <motion.div variants={itemVariants} className="mt-12 flex justify-center gap-6">
             <a href="https://chuzoux.top/" target="_blank" rel="noopener noreferrer">
-              <ShinyButton className="rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-10 py-5 text-base">
-                <span className="flex items-center gap-3 font-bold uppercase tracking-widest">
+              <RainbowBordersButton className="text-base uppercase tracking-widest">
+                <span className="flex items-center gap-3">
                   Explore Blog
                   <ArrowRight className="h-5 w-5" />
                 </span>
-              </ShinyButton>
+              </RainbowBordersButton>
             </a>
           </motion.div>
         </motion.div>
