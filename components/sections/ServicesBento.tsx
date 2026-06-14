@@ -118,11 +118,19 @@ export async function ServicesBento() {
   return (
     <section id="posts" className="relative py-32">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="mb-16 flex justify-between items-end animate-in fade-in slide-in-from-bottom-10 duration-1000">
-          <h2 className="font-display text-5xl font-black md:text-7xl">
-            MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">POSTS</span>
+        <div className="mb-20 text-center animate-in fade-in slide-in-from-bottom-10 duration-1000">
+          <h2 className="font-display text-6xl font-black md:text-8xl mb-8">
+            MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">POSTS</span>
           </h2>
-          <a href="https://chuzoux.top/" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors group">
+          <p className="text-slate-400 text-lg mb-6 max-w-2xl mx-auto">
+            Explore my latest articles on web security, CTF challenges, and tech insights
+          </p>
+          <a
+            href="https://chuzoux.top/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/10 backdrop-blur-sm text-slate-300 hover:text-white hover:border-blue-500/50 hover:from-blue-500/20 hover:to-purple-500/20 transition-all duration-300 group"
+          >
             View All Posts
             <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -134,12 +142,6 @@ export async function ServicesBento() {
           {posts.map((post, index) => (
             <TiltCard key={index} post={post} />
           ))}
-        </div>
-        
-        <div className="mt-8 text-center md:hidden">
-          <a href="https://chuzoux.top/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors">
-            View All Posts &rarr;
-          </a>
         </div>
       </div>
     </section>

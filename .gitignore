@@ -64,3 +64,6 @@ next-env.d.ts
 # pnpm-lock.yaml
 
 
+
+# Delivery documentation (internal use only)
+docs/delivery/

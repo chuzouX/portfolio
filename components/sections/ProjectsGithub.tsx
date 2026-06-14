@@ -101,11 +101,19 @@ export async function ProjectsGithub() {
   return (
     <section id="projects" className="relative py-32 border-t border-slate-800/50">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="mb-16 flex justify-between items-end">
-          <h2 className="font-display text-5xl font-black md:text-7xl">
+        <div className="mb-20 text-center">
+          <h2 className="font-display text-6xl font-black md:text-8xl mb-8">
             MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">PROJECTS</span>
           </h2>
-          <a href="https://github.com/chuzouX" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors group">
+          <p className="text-slate-400 text-lg mb-6 max-w-2xl mx-auto">
+            Open source projects and contributions on GitHub
+          </p>
+          <a
+            href="https://github.com/chuzouX"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-white/10 backdrop-blur-sm text-slate-300 hover:text-white hover:border-blue-500/50 hover:from-blue-500/20 hover:to-cyan-500/20 transition-all duration-300 group"
+          >
             View GitHub
             <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -124,10 +132,10 @@ export async function ProjectsGithub() {
           </h3>
           <div className="relative z-10 w-full overflow-x-auto pb-4 custom-scrollbar">
             <div className="min-w-[700px] flex justify-center">
-               <img 
-                 src="https://ghchart.rshah.org/3b82f6/chuzouX" 
-                 alt="chuzouX's Github Chart" 
-                 className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
+               <img
+                 src="https://ghchart.rshah.org/3b82f6/chuzouX"
+                 alt="chuzouX's Github Chart"
+                 className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                />
             </div>
           </div>
