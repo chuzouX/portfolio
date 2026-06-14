@@ -29,6 +29,8 @@
   --accent-2: #8B5CF6;      /* Cyber Purple */
   --accent-3: #84cc16;      /* Acid Green */
 
+  --primary: 217 91% 60%;   /* Blue for Shiny Button */
+
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-bg-strong: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 255, 255, 0.1);

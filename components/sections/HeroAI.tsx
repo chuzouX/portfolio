@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { ShinyButton } from "@/components/ui/shiny-button";
+import { ArrowRight } from "lucide-react";
 
 export function HeroAI() {
   const containerVariants: Variants = {
@@ -65,33 +67,14 @@ export function HeroAI() {
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-12 flex justify-center gap-6">
-            <motion.button
-              onClick={() => window.location.href = 'https://chuzoux.top/'}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative overflow-hidden rounded-full px-10 py-5 text-sm font-bold uppercase tracking-widest text-white"
-            >
-              {/* Animated gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
-
-              {/* Outer glow */}
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 opacity-50 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-
-              {/* Inner glow ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-
-              {/* Button content */}
-              <span className="relative z-10 flex items-center gap-3">
-                <span className="relative">
+            <div onClick={() => window.location.href = 'https://chuzoux.top/'}>
+              <ShinyButton className="rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-10 py-5 text-base">
+                <span className="flex items-center gap-3 font-bold uppercase tracking-widest">
                   Explore Blog
-                  {/* Underline animation */}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-white group-hover:w-full transition-all duration-300" />
+                  <ArrowRight className="h-5 w-5" />
                 </span>
-                <svg className="h-5 w-5 transition-transform group-hover:translate-x-2 group-hover:scale-110 duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-            </motion.button>
+              </ShinyButton>
+            </div>
           </motion.div>
         </motion.div>
       </div>
