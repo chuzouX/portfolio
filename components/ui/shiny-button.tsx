@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { motion, type AnimationProps } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
-const animationProps: AnimationProps = {
+const animationProps = {
   initial: { "--x": "100%", scale: 0.8 },
   animate: { "--x": "-100%", scale: 1 },
   whileTap: { scale: 0.95 },
@@ -24,10 +24,9 @@ const animationProps: AnimationProps = {
       mass: 0.5,
     },
   },
-};
+} as const;
 
-interface ShinyButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ShinyButtonProps {
   children: React.ReactNode;
   className?: string;
 }
@@ -35,12 +34,10 @@ interface ShinyButtonProps
 export const ShinyButton: React.FC<ShinyButtonProps> = ({
   children,
   className,
-  ...props
 }) => {
   return (
     <motion.button
       {...animationProps}
-      {...props}
       className={cn(
         "relative rounded-lg px-6 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]",
         className
