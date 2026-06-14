@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ShinyButton } from "@/components/ui/shiny-button";
-import { ArrowRight } from "lucide-react";
 
 export function NavbarAI() {
   const [scrolled, setScrolled] = useState(false);
@@ -54,15 +52,29 @@ export function NavbarAI() {
             </ul>
           </nav>
 
-          {/* Visit Blog Button with Shiny Effect */}
-          <a href="https://chuzoux.top/" target="_blank" rel="noopener noreferrer">
-            <ShinyButton className="rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-3">
-              <span className="flex items-center gap-2">
-                Visit Blog
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </ShinyButton>
-          </a>
+          {/* Visit Blog Button */}
+          <motion.a
+            href="https://chuzoux.top/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative overflow-hidden rounded-full px-8 py-3 text-sm font-bold tracking-wide text-white"
+          >
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
+
+            {/* Glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+
+            {/* Button content */}
+            <span className="relative z-10 flex items-center gap-2">
+              Visit Blog
+              <svg className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:scale-110 duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+          </motion.a>
         </div>
       </div>
     </motion.header>

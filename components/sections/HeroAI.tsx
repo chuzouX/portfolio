@@ -67,14 +67,14 @@ export function HeroAI() {
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-12 flex justify-center gap-6">
-            <div onClick={() => window.location.href = 'https://chuzoux.top/'}>
+            <a href="https://chuzoux.top/" target="_blank" rel="noopener noreferrer">
               <ShinyButton className="rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-10 py-5 text-base">
                 <span className="flex items-center gap-3 font-bold uppercase tracking-widest">
                   Explore Blog
                   <ArrowRight className="h-5 w-5" />
                 </span>
               </ShinyButton>
-            </div>
+            </a>
           </motion.div>
         </motion.div>
       </div>
