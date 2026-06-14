@@ -50,6 +50,7 @@ export function HeroAI() {
               width={112}
               height={112}
               priority
+              unoptimized
               className="rounded-full border-4 border-slate-800/50 object-cover shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-transform duration-500 hover:scale-105"
             />
           </motion.div>
