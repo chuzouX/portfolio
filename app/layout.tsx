@@ -1,7 +1,26 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ImageBackground } from "@/components/ui/ImageBackground";
+
+const jetbrainsMono = localFont({
+  src: "./fonts/jetbrains-mono.woff2",
+  variable: "--font-jetbrains-mono",
+  weight: "200 800",
+  style: "normal",
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+});
+
+const syne = localFont({
+  src: "./fonts/syne.woff2",
+  variable: "--font-syne",
+  weight: "400 800",
+  style: "normal",
+  display: "swap",
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   title: "chuzouX | Security & DevOps Explorer",
@@ -101,7 +120,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="dark"
+      className={`dark ${jetbrainsMono.variable} ${syne.variable}`}
     >
       <head>
         {/* DNS Prefetch and Preconnect for performance */}

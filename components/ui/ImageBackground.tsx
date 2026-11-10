@@ -10,7 +10,9 @@ export function ImageBackground() {
         alt="Background"
         fill
         className="object-cover opacity-30 mix-blend-luminosity"
-        priority
+        loading="lazy"
+        fetchPriority="low"
+        sizes="100vw"
         unoptimized
       />
       {/* Subtle vignette/noise overlay to ensure text remains readable */}

@@ -64,7 +64,7 @@ async function fetchGithubRepos(): Promise<Repo[]> {
   try {
     console.log(`[GitHub] Attempting to fetch repos for ${username}...`);
     const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed`, {
-      cache: "no-store",
+      next: { revalidate: 3600 },
       headers: {
         Accept: "application/vnd.github.v3+json",
         "User-Agent": "chuzouX-Portfolio-NextJS",
@@ -135,6 +135,10 @@ export async function ProjectsGithub() {
                <img
                  src="https://ghchart.rshah.org/3b82f6/chuzouX"
                  alt="chuzouX's Github Chart"
+                 width={663}
+                 height={104}
+                 loading="lazy"
+                 decoding="async"
                  className="w-full h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                />
             </div>

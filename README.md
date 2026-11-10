@@ -18,15 +18,19 @@ glass refracts, pointer-tracking specular highlights, and motion-driven scroll r
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
+npm run dev      # http://localhost:3300
 ```
 
 Build & run production:
 
 ```bash
 npm run build
-npm start
+npm start        # http://localhost:3300
 ```
+
+> Port 3300 is intentional: Windows reserves `2980-3079` for Hyper-V/WSL, so binding `:3000`
+> fails with `EACCES` regardless of privileges. Check the current reservations with
+> `netsh int ipv4 show excludedportrange protocol=tcp` before picking another port.
 
 > Note: if `lucide-react` / `framer-motion` resolve to a newer major than pinned in
 > `package.json`, that's fine — they're app deps, not libraries.
@@ -60,16 +64,17 @@ gradient so white text keeps ≥4.5:1 contrast in **both** themes.
 
 ### Fonts
 
-- Latin: **Space Grotesk** (display) + **Inter** (body) via `next/font`.
-- CJK: **Noto Sans SC** via a Google Fonts `<link>` in `app/layout.tsx` (unicode-range subsetting
-  keeps the download small). The font stacks fall back so mixed 中/EN text renders correctly.
+- Latin: **JetBrains Mono** (body/mono) + **Syne** (display), self-hosted as latin variable
+  subsets in `app/fonts/*.woff2` and wired through `next/font/local` in `app/layout.tsx`
+  (`--font-jetbrains-mono`, `--font-syne`). No external font CSS — nothing blocks render.
+- CJK: no webfont; text falls back to the system CJK face, so mixed 中/EN lines stay readable
+  without a multi-megabyte download.
 
 ## Structure
 
 ```
 app/            layout (fonts, providers, aurora), home page, blog routes, globals.css
 components/ui/      glass atoms (Panel, Button, Pill, Specular, Aurora, toggles)
-components/motion/  Reveal + shared variants
 components/sections/ Navbar, Hero, About, Projects, SkillsExperience, BlogTeaser, Contact, Footer, blog views
 content/        bilingual data
 lib/            cn() util + i18n (provider, dictionaries, config)

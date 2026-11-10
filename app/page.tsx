@@ -8,6 +8,8 @@ import { WhyUsAI } from "@/components/sections/WhyUsAI";
 import { ContactAI } from "@/components/sections/ContactAI";
 import { FooterAI } from "@/components/sections/FooterAI";
 
+export const revalidate = 3600;
+
 export default function Home() {
   return (
     <>

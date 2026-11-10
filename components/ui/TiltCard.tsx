@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Calendar, ArrowUpRight } from "lucide-react";
 
 export interface Post {
@@ -16,6 +16,26 @@ export interface Post {
 
 export function TiltCard({ post }: { post: Post }) {
   const ref = useRef<HTMLAnchorElement>(null);
+  const [showImage, setShowImage] = useState(false);
+
+  // Defer the decorative cover image until the card is close to the viewport,
+  // otherwise it competes with the hero for LCP bandwidth.
+  useEffect(() => {
+    if (!post.image) return;
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowImage(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [post.image]);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -64,12 +84,16 @@ export function TiltCard({ post }: { post: Post }) {
       className={`glass group relative flex flex-col overflow-hidden rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:border-blue-500/50 border border-white/10 backdrop-blur-xl bg-white/5 ${post.span}`}
     >
       {/* Background Image with Enhanced Overlay */}
-      {post.image && (
+      {post.image && showImage && (
         <>
           <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-black/50 to-black/80" />
           <img
             src={post.image}
             alt={post.title}
+            width={1200}
+            height={800}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 z-0 h-full w-full object-cover opacity-30 transition-all duration-700 group-hover:scale-110 group-hover:opacity-50"
           />
         </>

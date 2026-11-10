@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;700&family=Syne:wght@400;600;700;800&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -11,8 +10,8 @@
   --color-accent-2: var(--accent-2);
   --color-accent-3: var(--accent-3);
 
-  --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
 
   --radius-glass: 24px;
 }
@@ -76,7 +75,7 @@
   }
 
   h1, h2, h3, h4, h5 {
-    font-family: var(--font-space-grotesk), sans-serif;
+    font-family: var(--font-syne), sans-serif;
     font-weight: 800; /* Extreme contrast in weights */
     letter-spacing: -0.04em; /* Tight tracking */
   }
@@ -130,6 +129,21 @@
     100% {
       background-position: -200% 0;
     }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
 
